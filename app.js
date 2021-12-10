@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request"); 
@@ -41,7 +42,7 @@ app.post("/", function(req, res){
 
     const options = {
         method: "POST",
-        auth:"ratnam1:4513d2cdf52335fe752313ba7a1fced7-us20"
+        auth:"ratnam1:"+process.env.API_KEY
     }
 
     const request = https.request(url, options, function(response){
@@ -77,5 +78,3 @@ app.listen(process.env.PORT || 3000, function(){
 
 
 
-//ApiKey = 4513d2cdf52335fe752313ba7a1fced7-us20
-//listID = us20
